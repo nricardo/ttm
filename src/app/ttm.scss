@@ -1,0 +1,91 @@
+@import '~angular-material/angular-material.scss';
+
+ttm {
+  color: #eee;
+  height: 100vh;
+  overflow: hidden;
+
+  header {
+    background-color: #585858;
+    height: 50px;
+    padding: 5px 10px;
+
+    > img {
+      height: 40px;
+    }
+
+    > h5 {
+      padding: 0 25px;
+    }
+  }
+
+  main {
+    background-color: #ccc;
+    position: relative;
+
+    > .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.15;
+      z-index: 1;
+
+      > img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    > .ticket-machine {
+      height: 550px;
+      width: 450px;
+      margin: 40px 0;
+      border-radius: 8px;
+      z-index: 2;
+
+      > md-card-header {
+        background-color: #3f51b5;
+        border-radius: 8px 8px 0 0;
+        color: #eee;
+
+        > div {
+          margin: 0 20px;
+        }
+      }
+
+      > md-card-content {
+        border-bottom: 1px solid #d3d3d3;
+
+        section {
+          ul {
+            list-style: none;
+            padding: 5px;
+
+            li {
+              label {
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+
+      > md-card-actions {
+        min-height: 20px;
+
+        kbd {
+          background-color: #d6d6d6;
+          border: 1px solid #afadad;
+          border-radius: 5px;
+          color: #1d1a1a;
+          font-size: 1.2rem;
+          padding: 3px 5px;
+        }
+      }
+    }
+  }
+
+  // footer {}
+}

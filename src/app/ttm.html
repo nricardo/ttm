@@ -1,0 +1,59 @@
+<header flex="none" layout="row" layout-align="start center">
+  <img src="/assets/logo.png">
+  <h5>Welcome to TTM!</h5>
+</header>
+
+<main flex="auto" layout="column" layout-align="start center">
+  <div class="background">
+    <img src="/assets/station.jpg">
+  </div>
+
+  <md-card class="ticket-machine" layout="column">
+
+    <md-card-header flex="none">
+      <div>
+        <img src="/assets/tickets.png">
+      </div>
+      <p>Find your destination by entering the station name in the box below...</p>
+    </md-card-header>
+
+    <md-card-content flex="auto">
+      <form ng-submit="$event.preventDefault()">
+        <md-autocomplete md-no-cache="true" md-delay="100" md-min-length="1" ng-trim="false" md-selected-item="vm.station" md-search-text="vm.query"
+          md-search-text-change="vm.handleSearchChange(vm.query)" md-items="item in vm.searchStations(vm.query)" md-item-text="item.name"
+          placeholder="Search for station...">
+          <md-item-template>
+            <span md-highlight-text="vm.query" md-highlight-flags="^i">{{item.name}}</span>
+          </md-item-template>
+          <md-not-found>
+            No station matching "{{vm.query}}" found...
+          </md-not-found>
+        </md-autocomplete>
+      </form>
+
+      <section ng-if="vm.station">
+        <h3><u>Station info</u></h3>
+
+        <ul>
+          <li><label>Name:</label> {{vm.station.name}}</li>
+          <li><label>TIPLOC:</label> {{vm.station.tiploc}}</li>
+          <li><label>CRS:</label> {{vm.station.crs}}</li>
+          <li><label>TOC:</label> {{vm.station.toc}}</li>
+        </ul>
+      </section>
+    </md-card-content>
+
+    <md-card-actions flex="none" layout="row" layout-align="start center">
+      <section class="hints" ng-show="vm.next.length > 0">
+        <span>HINT:</span>
+        <span ng-repeat="char in vm.next">
+          <kbd>{{char}}</kbd>
+        </span>
+      </section>
+    </md-card-actions>
+
+  </md-card>
+
+</main>
+
+<footer flex="none"></footer>

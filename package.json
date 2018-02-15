@@ -1,0 +1,59 @@
+{
+  "name": "ttm",
+  "version": "1.0.0",
+  "main": "dist/server/index.js",
+  "author": "Nelson Ricardo <nelson.s.ricardo@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "train",
+    "ticket",
+    "machine",
+    "web",
+    "search",
+    "stations"
+  ],
+  "scripts": {
+    "build": "yarn build:app && yarn build:server",
+    "build:app": "webpack --colors --progress",
+    "prebuild:app": "yarn install",
+    "build:server": "babel --no-babelrc -d dist/server/ src/server/",
+    "postbuild:server": "cp src/server/stations.json dist/server/",
+    "start:server": "nodemon dist/server/index.js",
+    "prestart:server": "yarn build:server",
+    "test": "mocha test",
+    "pretest": "yarn install",
+    "dev": "webpack-dev-server --colors --progress --content-base dist/app/"
+  },
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-animate": "^1.6.9",
+    "angular-aria": "^1.6.9",
+    "angular-material": "^1.1.7",
+    "angular-messages": "^1.6.9",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "ng2now": "^0.0.17",
+    "trie-search": "^1.0.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "copy-webpack-plugin": "^4.4.1",
+    "css-loader": "^0.28.9",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^2.30.1",
+    "mocha": "^5.0.0",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.14.12",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
